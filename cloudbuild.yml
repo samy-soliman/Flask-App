@@ -57,8 +57,11 @@ steps:
 - name: 'gcr.io/cloud-builders/git'
   id: Clone Flask-kube repo
   args:
-  - clone 
-  - git@github.com:samy-soliman/Flask-kube.git
+  - clone
+  - --recurse-submodules
+  - '-b'
+  - candidate 
+  - https://github.com/samy-soliman/Flask-kube.git
   volumes:
   - name: 'ssh'
     path: /root/.ssh
