@@ -60,7 +60,7 @@ steps:
   args:
   - '-c'
   - |
-    git clone --recurse-submodules -b candidate git@github.com:samy-soliman/Flask-kube.git
+    GIT_SSH_COMMAND='ssh -i /root/.ssh/id_rsa' git clone --recurse-submodules -b candidate git@github.com:samy-soliman/Flask-kube.git
 
   volumes:
   - name: 'ssh'
