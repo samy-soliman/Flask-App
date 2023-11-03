@@ -60,7 +60,7 @@ steps:
   args:
   - '-c'
   - |
-    git clone --recurse-submodules -b candidate https://github.com/samy-soliman/Flask-kube.git
+    git clone --recurse-submodules -b candidate git@github.com:samy-soliman/Flask-kube.git
 
   volumes:
   - name: 'ssh'
@@ -85,8 +85,6 @@ steps:
   - |
     set -x && \
     cd Flask-kube && \
-    git remote remove origin
-    git remote add origin git@github.com:samy-soliman/Flask-kube.git 
     git config --global user.email $(git log --format='%an <%ae>' -n 1 HEAD)
     git config --global user.name $(git log --format='%an <%ae>' -n 1 HEAD)
     git add deployment.yml && \    
@@ -100,7 +98,7 @@ steps:
 
 availableSecrets:
   secretManager:
-  - versionName: projects/313782820756/secrets/github/versions/1
+  - versionName: projects/313782820756/secrets/github/versions/2
     env: 'SSH_KEY'
 
 options:
