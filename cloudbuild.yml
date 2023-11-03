@@ -61,7 +61,7 @@ steps:
   - '-c'
   - |
     git clone --recurse-submodules -b candidate git@github.com:samy-soliman/Flask-kube.git
-
+ 
   volumes:
   - name: 'ssh'
     path: /root/.ssh
