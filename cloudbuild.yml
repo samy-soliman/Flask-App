@@ -45,7 +45,7 @@ steps:
   secretEnv: ['SSH_KEY']
   entrypoint: 'bash'
   args:
-  - -c
+  - '-c'
   - |
     echo "$$SSH_KEY" >> /root/.ssh/id_rsa
     chmod 400 /root/.ssh/id_rsa
@@ -57,7 +57,7 @@ steps:
 - name: 'gcr.io/cloud-builders/gcloud'
   id: Clone Flask-kube repo
   args:
-  - -c
+  - '-c'
   - |
     git clone --recurse-submodules -b candidate git@github.com:samy-soliman/Flask-kube.git
 
