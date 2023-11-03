@@ -43,7 +43,7 @@ steps:
 # This step clones the Flask-Kube repository
 - name: 'gcr.io/cloud-builders/gcloud'
   secretEnv: ['SSH_KEY']
-  entrypoint: 'bash'
+  entrypoint: /bin/sh
   args:
   - '-c'
   - |
@@ -56,6 +56,7 @@ steps:
 
 - name: 'gcr.io/cloud-builders/gcloud'
   id: Clone Flask-kube repo
+  entrypoint: /bin/sh
   args:
   - '-c'
   - |
