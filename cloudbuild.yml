@@ -97,7 +97,7 @@ steps:
 
 availableSecrets:
   secretManager:
-  - versionName: projects/exalted-kit/secrets/github/versions/latest
+  - versionName: projects/313782820756/secrets/github/versions/1
     env: 'SSH_KEY'
 
 options:
