@@ -42,7 +42,6 @@ steps:
 # [START cloudbuild-trigger-cd]
 # This step clones the Flask-Kube repository
 - name: 'gcr.io/cloud-builders/git'
-  id: Retrieve SSH key
   secretEnv: ['SSH_KEY']
   entrypoint: 'bash'
   args:
@@ -98,7 +97,7 @@ steps:
 
 availableSecrets:
   secretManager:
-  - versionName: projects/313782820756/secrets/github/versions/1
+  - versionName: projects/exalted-kit/secrets/github/versions/1
     env: 'SSH_KEY'
 
 options:
