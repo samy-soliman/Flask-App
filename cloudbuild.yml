@@ -41,7 +41,7 @@ steps:
 
 # [START cloudbuild-trigger-cd]
 # This step clones the Flask-Kube repository
-- name: 'gcr.io/cloud-builders/git'
+- name: 'gcr.io/cloud-builders/gcloud'
   secretEnv: ['SSH_KEY']
   entrypoint: 'bash'
   args:
@@ -54,14 +54,13 @@ steps:
   - name: 'ssh'
     path: /root/.ssh
 
-- name: 'gcr.io/cloud-builders/git'
+- name: 'gcr.io/cloud-builders/gcloud'
   id: Clone Flask-kube repo
   args:
-  - clone
-  - --recurse-submodules
-  - '-b'
-  - candidate 
-  - https://github.com/samy-soliman/Flask-kube.git
+  - -c
+  - |
+    git clone --recurse-submodules -b candidate git@github.com:samy-soliman/Flask-kube.git
+
   volumes:
   - name: 'ssh'
     path: /root/.ssh
