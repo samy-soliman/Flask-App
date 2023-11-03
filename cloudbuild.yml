@@ -83,15 +83,15 @@ steps:
   args:
   - '-c'
   - |
-    set -x && \\
-    cd Flask-kube && \\
+    set -x && \
+    cd Flask-kube && \
     git config --global user.email $(git log --format='%an <%ae>' -n 1 HEAD)
     git config --global user.name $(git log --format='%an <%ae>' -n 1 HEAD)
-    git add kubernetes.yml && \\    
+    git add deployment.yml && \    
     git commit -m "Deploying image us-east1-docker.pkg.dev/$PROJECT_ID/mongo-registry/flask:${SHORT_SHA}
-    Built from commit ${COMMIT_SHA} of repository hello-cloudbuild-app
-    Author: $(git log --format='%an <%ae>' -n 1 HEAD)" && \\
-    git push origin main
+    Built from commit ${COMMIT_SHA} of repository Flask-App
+    Author: $(git log --format='%an <%ae>' -n 1 HEAD)" && \
+    git push origin candidate
   volumes:
   - name: 'ssh'
     path: /root/.ssh
